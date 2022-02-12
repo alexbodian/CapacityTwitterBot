@@ -63,7 +63,7 @@ async def main():
 
     stakedPercentage = (((geminiStaked+spednStaked+lightningStaked)/totalCircTokens)*100)
     stakedPercentage = round(stakedPercentage,2)
-    stakedPercentageStr = s(stakedPercentage)
+    stakedPercentageStr = (stakedPercentage)
     print("Total Staked Percentage: " + stakedPercentageStr + "%")
 
     

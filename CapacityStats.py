@@ -1,5 +1,5 @@
 import os
-# import tweepyimport Tkinter
+import tweepy
 import re
 import time
 import asyncio
@@ -63,21 +63,22 @@ async def main():
 
     stakedPercentage = (((geminiStaked+spednStaked+lightningStaked)/totalCircTokens)*100)
     stakedPercentage = round(stakedPercentage,2)
-    stakedPercentageStr = str(stakedPercentage)
+    stakedPercentageStr = s(stakedPercentage)
     print("Total Staked Percentage: " + stakedPercentageStr + "%")
 
     
-    # consumer_key = 'consumer key'
-    # consumer_secret = 'consumer secrets'
-    # access_token = 'access token'
-    # access_token_secret = 'access token secret'
-    # auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
-    # auth.set_access_token(access_token, access_token_secret)
-    # api = tweepy.API(auth)
 
+    # api_key = ''
+    # api_key_secret = ''
+    # access_token = ''
+    # access_token_secret = ''
 
+    # authenticator = tweepy.OAuthHandler(api_key, api_key_secret)
+    # authenticator.set_access_token(access_token, access_token_secret)
 
+    # api = tweepy.API(authenticator, wait_on_rate_limit=True)
 
+    # api.update_status("Test")
 
 
 

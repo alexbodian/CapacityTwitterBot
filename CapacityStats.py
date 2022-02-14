@@ -76,11 +76,11 @@ async def main():
 
     
     tweet1 = "Flexa Capacity Stats\n\n"
-    tweet2 = "Total Staked on Gemini: " + geminiStakedStr  + " ₳"
-    tweet3 = "\nTotal Staked on Spedn: " + spednStakedstr + " ₳"
-    tweet4 = "\nTotal Staked on Lightning: " + lightningStakedStr + " ₳"
-    tweet5 = "\nTotal number of tokens staked out of the circulating supply: \n" + totalTokensStakedFormatted + " ₳ / " + totalCircTokensFormatted + " ₳"
-    tweet6 = "\nTotal Staked Percentage: " + stakedPercentageStr + "%\n" + "$AMP #flexa #amp" 
+    tweet2 = "Staked on Gemini: " + geminiStakedStr  + " ₳"
+    tweet3 = "\nStaked on Spedn: " + spednStakedstr + " ₳"
+    tweet4 = "\nStaked on Lightning: " + lightningStakedStr + " ₳"
+    tweet5 = "\nTokens staked out of the circulating supply: \n" + totalTokensStakedFormatted + " ₳ / " + totalCircTokensFormatted + " ₳"
+    tweet6 = "\nTotal Staked Percentage: " + stakedPercentageStr + "%\n" + "$AMP #flexa #amp"
 
     tweet = (tweet1 + tweet2 + tweet3 + tweet4 + tweet5 + tweet6)
 
@@ -91,6 +91,7 @@ async def main():
 
     api = tweepy.API(authenticator, wait_on_rate_limit=True)
 
+    # print(tweet)
     api.update_status(tweet)
 
 

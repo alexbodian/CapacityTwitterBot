@@ -79,7 +79,7 @@ async def main():
     tweet2 = "Total Staked on Gemini: " + geminiStakedStr  
     tweet3 = "\nTotal Staked on Spedn: " + spednStakedstr 
     tweet4 = "\nTotal Staked on Lightning: " + lightningStakedStr
-    tweet5 = "\nTotal number of tokens staked out of circulating supply: \n" + totalTokensStakedFormatted + " / " + totalCircTokensFormatted 
+    tweet5 = "\nTotal number of tokens staked out of the circulating supply: \n" + totalTokensStakedFormatted + " / " + totalCircTokensFormatted 
     tweet6 = "\nTotal Staked Percentage: " + stakedPercentageStr + "%"
 
     tweet = (tweet1 + tweet2 + tweet3 + tweet4 + tweet5 + tweet6)

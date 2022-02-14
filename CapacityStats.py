@@ -1,17 +1,19 @@
 import os
-# import tweepyimport Tkinter
+import tweepy
+import tkinter
 import re
 import time
+import locale
 import asyncio
 import time
 import pyppeteer
 from pyppeteer import launch
 
-
+locale.setlocale(locale.LC_ALL, 'en_US.UTF-8')
 async def main():
     browser = await launch()
 
-    # # Gemini Pool
+    # Gemini Pool
     page = await browser.newPage()
     await page.goto('https://app.flexa.network/explore/app/gemini')
     time.sleep(7)
@@ -58,22 +60,27 @@ async def main():
     element = await page.querySelector("pre")
     title = await page.evaluate('(element) => element.textContent', element)
     totalCircTokens = float(title)
-
+    totalCircTokensFormatted = locale.format_string("%d", totalCircTokens, grouping=True)
     
+    
+    totalTokensStaked = geminiStaked+spednStaked+lightningStaked
+    totalTokensStakedFormatted = locale.format_string("%d", totalTokensStaked, grouping=True)
+
 
     stakedPercentage = (((geminiStaked+spednStaked+lightningStaked)/totalCircTokens)*100)
     stakedPercentage = round(stakedPercentage,2)
     stakedPercentageStr = str(stakedPercentage)
+    print("Total number of tokens staked out of circulating supply: " + totalTokensStakedFormatted + " / " + totalCircTokensFormatted)
     print("Total Staked Percentage: " + stakedPercentageStr + "%")
 
     
-    # consumer_key = 'consumer key'
-    # consumer_secret = 'consumer secrets'
-    # access_token = 'access token'
-    # access_token_secret = 'access token secret'
-    # auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
-    # auth.set_access_token(access_token, access_token_secret)
-    # api = tweepy.API(auth)
+    consumer_key = 'consumer key'
+    consumer_secret = 'consumer secrets'
+    access_token = 'access token'
+    access_token_secret = 'access token secret'
+    auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+    auth.set_access_token(access_token, access_token_secret)
+    api = tweepy.API(auth)
 
 
 

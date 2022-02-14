@@ -90,7 +90,7 @@ async def main():
 
     api = tweepy.API(authenticator, wait_on_rate_limit=True)
 
-    api.update_status("Test")
+    api.update_status(tweet)
 
 
 

@@ -1,9 +1,6 @@
 import os
 import tweepy
-<<<<<<< HEAD
 import tkinter
-=======
->>>>>>> 41b9243d8db1d9ecd31a82da998f73401ff1bb24
 import re
 import time
 import locale

@@ -1,6 +1,9 @@
 import os
 import tweepy
+<<<<<<< HEAD
 import tkinter
+=======
+>>>>>>> 41b9243d8db1d9ecd31a82da998f73401ff1bb24
 import re
 import time
 import locale
@@ -74,6 +77,7 @@ async def main():
     print("Total Staked Percentage: " + stakedPercentageStr + "%")
 
     
+<<<<<<< HEAD
     consumer_key = 'consumer key'
     consumer_secret = 'consumer secrets'
     access_token = 'access token'
@@ -81,10 +85,20 @@ async def main():
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
     auth.set_access_token(access_token, access_token_secret)
     api = tweepy.API(auth)
+=======
+>>>>>>> 41b9243d8db1d9ecd31a82da998f73401ff1bb24
 
+    # api_key = ''
+    # api_key_secret = ''
+    # access_token = ''
+    # access_token_secret = ''
 
+    # authenticator = tweepy.OAuthHandler(api_key, api_key_secret)
+    # authenticator.set_access_token(access_token, access_token_secret)
 
+    # api = tweepy.API(authenticator, wait_on_rate_limit=True)
 
+    # api.update_status("Test")
 
 
 

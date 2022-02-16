@@ -96,7 +96,7 @@ async def main():
     tweet3 = "\n\nStaked on Spedn: " + spednStakedstr + " ₳\n" + "APY on Spedn: "  + spednAPY
     tweet4 = "\n\nStaked on Lightning: " + lightningStakedStr + " ₳\n" + "APY on Lightning: "  + lightningAPY
     tweet5 = "Tokens staked out of the circulating supply: \n" + totalTokensStakedFormatted + " ₳ / " + totalCircTokensFormatted + " ₳"
-    tweet6 = "\n\nTotal Staked Percentage: " + stakedPercentageStr + "%\n"#+ "$AMP #flexa #amp"
+    tweet6 = "\n\nTotal Staked Percentage: " + stakedPercentageStr + "%\n"+ "$AMP #flexa #amp"
 
     tweet = (tweet1 + tweet2 + tweet3 + tweet4)
     tweetText = (tweet5 + tweet6)
@@ -120,7 +120,10 @@ async def main():
 
     time.sleep(3)
 
-    
+    api_key = "lQ5q0DylYexl72TzJwamrfP95"
+    api_key_secret = "sWxBitWdF9IYPy9zYubT8RbtieMskOhD4TQ5EGEfzzpXgkjUK4"
+    access_token = "1492327492811689985-QFHfhKYBqLCeK2635Qmms35Uyq7KYQ"
+    access_token_secret = "R1jLksxTdy7jJadvZBkQvs9JYPDv8CHdItZzmzAPppQYI"
   
     authenticator = tweepy.OAuthHandler(api_key, api_key_secret)
     authenticator.set_access_token(access_token, access_token_secret)

@@ -92,14 +92,24 @@ async def main():
     # print("Total Staked Percentage: " + stakedPercentageStr + "%")
 
     
+    # tweet1 = "                              Flexa Capacity Stats\n\n"
+    # tweet2 = "Staked on Gemini: " + geminiStakedStr  + " ₳\n" + "APY on Gemini: "  + geminiAPY
+    # tweet3 = "\n\nStaked on Spedn: " + spednStakedstr + " ₳\n" + "APY on Spedn: "  + spednAPY
+    # tweet4 = "\n\nStaked on Lightning: " + lightningStakedStr + " ₳\n" + "APY on Lightning: "  + lightningAPY
+    # tweet5 = "Tokens staked out of the circulating supply: \n" + totalTokensStakedFormatted + " ₳ / " + totalCircTokensFormatted + " ₳"
+    # tweet6 = "\n\nTotal Staked Percentage: " + stakedPercentageStr + "%\n"+ "$AMP #flexa #amp"
+    
+    
     tweet1 = "                              Flexa Capacity Stats\n\n"
-    tweet2 = "Staked on Gemini: " + geminiStakedStr  + " ₳\n" + "APY on Gemini: "  + geminiAPY
-    tweet3 = "\n\nStaked on Spedn: " + spednStakedstr + " ₳\n" + "APY on Spedn: "  + spednAPY
-    tweet4 = "\n\nStaked on Lightning: " + lightningStakedStr + " ₳\n" + "APY on Lightning: "  + lightningAPY
+    tweet2 =   "    Pool                 APY                Amount of AMP Staked                       \n"
+    tweet2_5 = " -----------         ----------          ----------------------------------                 \n"
+    tweet2_75 = "   Spedn             " + spednAPY + "                 "  +spednStakedstr +  " ₳\n\n" 
+    tweet3 = "  Gemini            " + geminiAPY + "                 "  +geminiStakedStr +  " ₳\n\n" 
+    tweet4 = " Lightning         " + lightningAPY + "                  "  +lightningStakedStr +  " ₳\n\n" 
     tweet5 = "Tokens staked out of the circulating supply: \n" + totalTokensStakedFormatted + " ₳ / " + totalCircTokensFormatted + " ₳"
     tweet6 = "\n\nTotal Staked Percentage: " + stakedPercentageStr + "%\n"+ "$AMP #flexa #amp"
 
-    tweet = (tweet1 + tweet2 + tweet3 + tweet4)
+    tweet = (tweet1 + tweet2 + tweet2_5 + tweet2_75 + tweet3 + tweet4)
     tweetText = (tweet5 + tweet6)
 
 
@@ -108,7 +118,7 @@ async def main():
     width = 512
     height = 305
     img = Image.new('RGB', (width, height), color='black')
-    fnt = ImageFont.truetype("Noto_Sans/NotoSans-Regular.ttf", 20)
+    fnt = ImageFont.truetype("NotoSans-Regular.ttf", 20)
     imgDraw = ImageDraw.Draw(img)
 
     imgDraw.text((10, 10), tweet,font=fnt, fill=(255, 255, 255))
@@ -118,7 +128,7 @@ async def main():
     currentTime = str(currentTime)
 
     img.save('{}.png'.format(currentTime))
-
+    exit()
     time.sleep(3)
 
     authenticator = tweepy.OAuthHandler(api_key, api_key_secret)

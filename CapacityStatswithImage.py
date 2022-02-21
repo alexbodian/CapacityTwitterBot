@@ -16,6 +16,26 @@ locale.setlocale(locale.LC_ALL, 'en_US.UTF-8')
 async def main():
     browser = await launch()
 
+    lastStakedValue = 0
+    # read
+    readFile = open("lastStaked.txt", 'r')
+    for line in readFile:
+        lastStakedValue = line
+
+    # write
+    myfile = open("lastStaked.txt", 'w')
+    myfile.write("66")
+
+    current = 22247
+    difference = current  - int(lastStakedValue) 
+    # print(difference)
+
+    stakedChangeStr = locale.format_string("%d", difference, grouping=True)
+
+    print(stakedChangeStr)
+
+
+
     # Gemini Pool
     page = await browser.newPage()
     await page.goto('https://app.flexa.network/explore/app/gemini')
@@ -91,16 +111,35 @@ async def main():
     # print("Total number of tokens staked out of circulating supply: " + totalTokensStakedFormatted + " / " + totalCircTokensFormatted)
     # print("Total Staked Percentage: " + stakedPercentageStr + "%")
 
+    lastStakedValue = 1 # placeholder
+    # read
+    readFile = open("lastStaked.txt", 'r')
+    for line in readFile:
+        lastStakedValue = line
+
+    # write
+    myfile = open("lastStaked.txt", 'w')
+    myfile.write(totalTokensStaked)
+
+    current = totalTokensStaked
+    difference = current  - int(lastStakedValue) 
     
+
+    stakedChangeStr = locale.format_string("%d", difference, grouping=True)
+
+
+
+
     tweet1 = "                              Flexa Capacity Stats\n\n"
     tweet2 = "Staked on Gemini: " + geminiStakedStr  + " ₳\n" + "APY on Gemini: "  + geminiAPY
     tweet3 = "\n\nStaked on Spedn: " + spednStakedstr + " ₳\n" + "APY on Spedn: "  + spednAPY
     tweet4 = "\n\nStaked on Lightning: " + lightningStakedStr + " ₳\n" + "APY on Lightning: "  + lightningAPY
     tweet5 = "Tokens staked out of the circulating supply: \n" + totalTokensStakedFormatted + " ₳ / " + totalCircTokensFormatted + " ₳"
+    tweet5_5 = "Change in amount staked in the past hour: \n" + stakedChangeStr + " ₳\n"
     tweet6 = "\n\nTotal Staked Percentage: " + stakedPercentageStr + "%\n"+ "$AMP #flexa #amp"
 
     tweet = (tweet1 + tweet2 + tweet3 + tweet4)
-    tweetText = (tweet5 + tweet6)
+    tweetText = (tweet5 + tweet5_5 + tweet6)
 
 
     # https://python.plainenglish.io/generating-text-on-image-with-python-eefe4430fe77
@@ -121,6 +160,9 @@ async def main():
 
     time.sleep(3)
 
+
+
+    
     authenticator = tweepy.OAuthHandler(api_key, api_key_secret)
     authenticator.set_access_token(access_token, access_token_secret)
 

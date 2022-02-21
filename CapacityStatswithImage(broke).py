@@ -154,10 +154,6 @@ async def main():
 
     time.sleep(3)
 
-    api_key = "lQ5q0DylYexl72TzJwamrfP95"
-    api_key_secret = "sWxBitWdF9IYPy9zYubT8RbtieMskOhD4TQ5EGEfzzpXgkjUK4"
-    access_token = "1492327492811689985-QFHfhKYBqLCeK2635Qmms35Uyq7KYQ"
-    access_token_secret = "R1jLksxTdy7jJadvZBkQvs9JYPDv8CHdItZzmzAPppQYI"
 
     
     authenticator = tweepy.OAuthHandler(api_key, api_key_secret)

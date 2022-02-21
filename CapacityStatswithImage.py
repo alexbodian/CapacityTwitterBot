@@ -131,9 +131,11 @@ async def main():
 
 
     tweet1 = "                              Flexa Capacity Stats\n\n"
-    tweet2 = "Staked on Gemini: " + geminiStakedStr  + " ₳\n" + "APY on Gemini: "  + geminiAPY
-    tweet3 = "\n\nStaked on Spedn: " + spednStakedstr + " ₳\n" + "APY on Spedn: "  + spednAPY
-    tweet4 = "\n\nStaked on Lightning: " + lightningStakedStr + " ₳\n" + "APY on Lightning: "  + lightningAPY
+    tweet2 =   "    Pool                 APY                Amount of AMP Staked                       \n"
+    tweet2_5 = " -----------         ----------          ----------------------------------                 \n"
+    tweet2_75 = "   Spedn             " + spednAPY + "                 "  +spednStakedstr +  " ₳\n\n" 
+    tweet3 = "  Gemini            " + geminiAPY + "                 "  +geminiStakedStr +  " ₳\n\n" 
+    tweet4 = " Lightning         " + lightningAPY + "                  "  +lightningStakedStr +  " ₳\n\n" 
     tweet5 = "Tokens staked out of the circulating supply: \n" + totalTokensStakedFormatted + " ₳ / " + totalCircTokensFormatted + " ₳"
     tweet5_5 = "Change in amount staked in the past hour: \n" + stakedChangeStr + " ₳\n"
     tweet6 = "\n\nTotal Staked Percentage: " + stakedPercentageStr + "%\n"+ "$AMP #flexa #amp"
@@ -147,7 +149,7 @@ async def main():
     width = 512
     height = 305
     img = Image.new('RGB', (width, height), color='black')
-    fnt = ImageFont.truetype("Noto_Sans/NotoSans-Regular.ttf", 20)
+    fnt = ImageFont.truetype("NotoSans-Regular.ttf", 20)
     imgDraw = ImageDraw.Draw(img)
 
     imgDraw.text((10, 10), tweet,font=fnt, fill=(255, 255, 255))

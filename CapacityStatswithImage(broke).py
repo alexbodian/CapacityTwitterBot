@@ -88,6 +88,8 @@ async def main():
     stakedPercentage = (((geminiStaked+spednStaked+lightningStaked)/totalCircTokens)*100)
     stakedPercentage = round(stakedPercentage,2)
     stakedPercentageStr = str(stakedPercentage)
+    # print("Total number of tokens staked out of circulating supply: " + totalTokensStakedFormatted + " / " + totalCircTokensFormatted)
+    # print("Total Staked Percentage: " + stakedPercentageStr + "%")
 
     lastStakedValue = 1 # placeholder
     # read
@@ -100,19 +102,14 @@ async def main():
     myfile.write(str(totalTokensStaked))
 
     current = totalTokensStaked
-    difference = current  - int(float(lastStakedValue)) 
+    difference = current  - int(lastStakedValue) 
     
-    # negative
-    if current < 0:
-        difference = difference * -1 
-        stakedChangeStr = locale.format_string("%d", difference, grouping=True)
-        tweet5_5 = "Change in amount staked in the past hour: \n Decreased by: " + stakedChangeStr + " ₳\n"
-    elif difference >= 0:
-        stakedChangeStr = locale.format_string("%d", difference, grouping=True)
-        tweet5_5 = "Change in amount staked in the past hour: \n Increased by: " + stakedChangeStr + " ₳\n"
 
     
-    
+
+
+
+
     tweet1 = "                              Flexa Capacity Stats\n\n"
     tweet2 =   "    Pool                 APY                Amount of AMP Staked                       \n"
     tweet2_5 = " -----------         ----------          ----------------------------------                 \n"
@@ -120,12 +117,24 @@ async def main():
     tweet3 = "  Gemini            " + geminiAPY + "                 "  +geminiStakedStr +  " ₳\n\n" 
     tweet4 = " Lightning         " + lightningAPY + "                  "  +lightningStakedStr +  " ₳\n\n" 
     tweet5 = "Tokens staked out of the circulating supply: \n" + totalTokensStakedFormatted + " ₳ / " + totalCircTokensFormatted + " ₳"
+        #negative
+    if difference < 0:
+        difference = difference * -1 
+        stakedChangeStr = locale.format_string("%d", difference, grouping=True)
+        tweet5_5 = "Change in amount staked in the past hour: \n Decreased by: " + stakedChangeStr + " ₳\n"
+    
+    #positive or 0
+    elif difference >= 0:
+        stakedChangeStr = locale.format_string("%d", difference, grouping=True)
+        tweet5_5 = "Change in amount staked in the past hour: \n Increased by: " + stakedChangeStr + " ₳\n"
+
+
+    
     tweet6 = "\n\nTotal Staked Percentage: " + stakedPercentageStr + "%\n"+ "$AMP #flexa #amp"
 
-    tweet = (tweet1 + tweet2 + tweet2_5 + tweet2_75 + tweet3 + tweet4)
+    tweet = (tweet1 + tweet2 + tweet3 + tweet4)
     tweetText = (tweet5 + tweet5_5 + tweet6)
 
-    print(tweetText)
 
     # https://python.plainenglish.io/generating-text-on-image-with-python-eefe4430fe77
     # https://pillow.readthedocs.io/en/stable/reference/ImageDraw.html
@@ -145,10 +154,12 @@ async def main():
 
     time.sleep(3)
 
+    api_key = "lQ5q0DylYexl72TzJwamrfP95"
+    api_key_secret = "sWxBitWdF9IYPy9zYubT8RbtieMskOhD4TQ5EGEfzzpXgkjUK4"
+    access_token = "1492327492811689985-QFHfhKYBqLCeK2635Qmms35Uyq7KYQ"
+    access_token_secret = "R1jLksxTdy7jJadvZBkQvs9JYPDv8CHdItZzmzAPppQYI"
 
-
-
-
+    
     authenticator = tweepy.OAuthHandler(api_key, api_key_secret)
     authenticator.set_access_token(access_token, access_token_secret)
 

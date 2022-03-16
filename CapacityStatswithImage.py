@@ -4,16 +4,29 @@ import re
 import time
 import locale
 import asyncio
+import csv
+from datetime import date
+from datetime import datetime
 from PIL import Image, ImageDraw, ImageFont
 import time
 import pyppeteer
 from pyppeteer import launch
+
+
+
+
 # need to put starting location same as the directory of the file
 # if running with the Windows task scheduler
 
 locale.setlocale(locale.LC_ALL, 'en_US.UTF-8')
 async def main():
     browser = await launch()
+
+    dateCurr = date.today()
+    dateCurr = dateCurr.strftime("%m/%d/%y")
+
+    timeCurr = datetime.now()
+    timeCurr = timeCurr.strftime("%H:%M")
 
     # Gemini Pool
     page = await browser.newPage()
@@ -146,7 +159,25 @@ async def main():
     time.sleep(3)
 
 
+    # tweet1 = "                              Flexa Capacity Stats\n\n"
+    # tweet2 =   "    Pool                 APY                Amount of AMP Staked                       \n"
+    # tweet2_5 = " -----------         ----------          ----------------------------------                 \n"
+    # tweet2_75 = "   Spedn             " + spednAPY + "                 "  +spednStakedstr +  " ₳\n\n" 
+    # tweet3 = "  Gemini            " + geminiAPY + "                 "  +geminiStakedStr +  " ₳\n\n" 
+    # tweet4 = " Lightning         " + lightningAPY + "                  "  +lightningStakedStr +  " ₳\n\n" 
+    # tweet5 = "Tokens staked out of the circulating supply: \n" + totalTokensStakedFormatted + " ₳ / " + totalCircTokensFormatted + " ₳"
+    # tweet6 = "\n\nTotal Staked Percentage: " + stakedPercentageStr + "%\n"+ "$AMP #flexa #amp"
 
+
+
+
+    # Date,Time,Spedn,Gemini,Lightning,SpednAPY,GeminiAPY,LightningAPY
+    with open("./capacityStats.csv", "a", newline='') as csvfile:
+        writer = csv.writer(csvfile)
+        writer.writerow([dateCurr, timeCurr, spednStakedstr,geminiStakedStr,lightningStakedStr,spednAPY,geminiAPY,lightningAPY])
+
+
+    exit()
 
     authenticator = tweepy.OAuthHandler(api_key, api_key_secret)
     authenticator.set_access_token(access_token, access_token_secret)

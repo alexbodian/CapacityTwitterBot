@@ -1,6 +1,5 @@
 import os
 import tweepy
-import tkinter
 import re
 import time
 import locale
@@ -15,26 +14,6 @@ from pyppeteer import launch
 locale.setlocale(locale.LC_ALL, 'en_US.UTF-8')
 async def main():
     browser = await launch()
-
-    lastStakedValue = 0
-    # read
-    readFile = open("lastStaked.txt", 'r')
-    for line in readFile:
-        lastStakedValue = line
-
-    # write
-    myfile = open("lastStaked.txt", 'w')
-    myfile.write("66")
-
-    current = 22247
-    difference = current  - int(lastStakedValue) 
-    # print(difference)
-
-    stakedChangeStr = locale.format_string("%d", difference, grouping=True)
-
-    print(stakedChangeStr)
-
-
 
     # Gemini Pool
     page = await browser.newPage()
@@ -108,8 +87,6 @@ async def main():
     stakedPercentage = (((geminiStaked+spednStaked+lightningStaked)/totalCircTokens)*100)
     stakedPercentage = round(stakedPercentage,2)
     stakedPercentageStr = str(stakedPercentage)
-    # print("Total number of tokens staked out of circulating supply: " + totalTokensStakedFormatted + " / " + totalCircTokensFormatted)
-    # print("Total Staked Percentage: " + stakedPercentageStr + "%")
 
     lastStakedValue = 1 # placeholder
     # read
@@ -119,17 +96,23 @@ async def main():
 
     # write
     myfile = open("lastStaked.txt", 'w')
-    myfile.write(totalTokensStaked)
+    myfile.write(str(totalTokensStaked))
 
     current = totalTokensStaked
-    difference = current  - int(lastStakedValue) 
+    difference = current  - int(float(lastStakedValue)) 
     
+    # negative
+    if difference < 0:
+        difference = difference * -1 
+        stakedChangeStr = locale.format_string("%d", difference, grouping=True)
+        tweet5_5 = "\nChange in amount staked in the past hour: \nDecreased by " + stakedChangeStr + " ₳\n"
+    # positive
+    elif difference >= 0:
+        stakedChangeStr = locale.format_string("%d", difference, grouping=True)
+        tweet5_5 = "\nChange in amount staked in the past hour: \nIncreased by " + stakedChangeStr + " ₳\n"
 
-    stakedChangeStr = locale.format_string("%d", difference, grouping=True)
-
-
-
-
+    
+    
     tweet1 = "                              Flexa Capacity Stats\n\n"
     tweet2 =   "    Pool                 APY                Amount of AMP Staked                       \n"
     tweet2_5 = " -----------         ----------          ----------------------------------                 \n"
@@ -137,12 +120,12 @@ async def main():
     tweet3 = "  Gemini            " + geminiAPY + "                 "  +geminiStakedStr +  " ₳\n\n" 
     tweet4 = " Lightning         " + lightningAPY + "                  "  +lightningStakedStr +  " ₳\n\n" 
     tweet5 = "Tokens staked out of the circulating supply: \n" + totalTokensStakedFormatted + " ₳ / " + totalCircTokensFormatted + " ₳"
-    tweet5_5 = "Change in amount staked in the past hour: \n" + stakedChangeStr + " ₳\n"
     tweet6 = "\n\nTotal Staked Percentage: " + stakedPercentageStr + "%\n"+ "$AMP #flexa #amp"
 
-    tweet = (tweet1 + tweet2 + tweet3 + tweet4)
+    tweet = (tweet1 + tweet2 + tweet2_5 + tweet2_75 + tweet3 + tweet4)
     tweetText = (tweet5 + tweet5_5 + tweet6)
 
+    
 
     # https://python.plainenglish.io/generating-text-on-image-with-python-eefe4430fe77
     # https://pillow.readthedocs.io/en/stable/reference/ImageDraw.html
@@ -158,26 +141,26 @@ async def main():
     currentTime = int(currentTime)
     currentTime = str(currentTime)
 
-    img.save('{}.png'.format(currentTime))
+    img.save('./image/{}.png'.format(currentTime))
 
     time.sleep(3)
 
-    
 
-    
+
+
     authenticator = tweepy.OAuthHandler(api_key, api_key_secret)
     authenticator.set_access_token(access_token, access_token_secret)
 
     api = tweepy.API(authenticator, wait_on_rate_limit=True)
 
     # upload image
-    media = api.media_upload('{}.png'.format(currentTime))
+    media = api.media_upload('./image/{}.png'.format(currentTime))
 
     # post tweet with image
     api.update_status(status=tweetText,media_ids=[media.media_id])
 
 
-
+    await page.close()
     await browser.close()
 
 

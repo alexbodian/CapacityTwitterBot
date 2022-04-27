@@ -18,10 +18,7 @@ locale.setlocale(locale.LC_ALL, 'en_US.UTF-8')
 async def main():
     browser = await launch()
 
-    timeCurr = datetime.now()
-    timeCurr = timeCurr.strftime("%H:%M:%S")
 
-    print(timeCurr)
     
     # Gemini Pool
     page = await browser.newPage()
@@ -341,17 +338,17 @@ async def main():
     tweet3 = "   Gemini           " + geminiAPY + "                 "  +geminiStakedStr +  " ₳\n\n"
     tweet3_5 = "   Spedn             " + spednAPY + "                 "  +spednStakedstr +  " ₳\n\n"
     tweet4 = "   Bitcoin             " + bitcoinAPY + "                 "  +bitcoinStakedStr +  " ₳\n\n"
-    tweet4_5 = "   Bitcoin Cash      " + bitcoincashAPY + "                 "  +bitcoincashStakedStr +  " ₳\n\n"
-    tweet5 = "   Cardano         " + cardanoAPY + "                 "  +cardanoStakedStr +  " ₳\n\n"
-    tweet5_5 = "   Celo                  " + celoAPY + "                 "  +celoStakedStr +  " ₳\n\n"
-    tweet6 = "   Dogecoin         " + dogecoinAPY + "                 "  +dogecoinStakedStr +  " ₳\n\n"
-    tweet6_5 = "   Ethereum         " + ethereumAPY + "                 "  +ethereumStakedStr +  " ₳\n\n"
-    tweet7 = "   Lightning           " + lightningAPY + "                 "  +lightningStakedStr +  " ₳\n\n"
-    tweet7_5 = "   Litecoin            " + litecoinAPY + "                 "  +litecoinStakedStr +  " ₳\n\n"
-    tweet8 = "   Polygon          " + polygonAPY + "                 "  +polygonStakedStr +  " ₳\n\n"
-    tweet8_5 = "   Solana           " + solanaAPY + "                 "  +solanaStakedStr +  " ₳\n\n"
-    tweet9 = "   Tezos             " + tezosAPY + "                 "  +tezosStakedStr +  " ₳\n\n"
-    tweet9_5 = "   Zcash             " + zcashAPY + "                 "  +zcashStakedStr +  " ₳\n\n"
+    tweet4_5 = "   Bitcoin Cash     " + bitcoincashAPY + "                 "  +bitcoincashStakedStr +  " ₳\n\n"
+    tweet5 = "   Cardano          " + cardanoAPY + "                 "  +cardanoStakedStr +  " ₳\n\n"
+    tweet5_5 = "   Celo                   " + celoAPY + "                    "  +celoStakedStr +  " ₳\n\n"
+    tweet6 = "   Dogecoin          " + dogecoinAPY + "                 "  +dogecoinStakedStr +  " ₳\n\n"
+    tweet6_5 = "   Ethereum          " + ethereumAPY + "                 "  +ethereumStakedStr +  " ₳\n\n"
+    tweet7 = "   Lightning            " + lightningAPY + "                 "  +lightningStakedStr +  " ₳\n\n"
+    tweet7_5 = "   Litecoin             " + litecoinAPY + "                 "  +litecoinStakedStr +  " ₳\n\n"
+    tweet8 = "   Polygon            " + polygonAPY + "                 "  +polygonStakedStr +  " ₳\n\n"
+    tweet8_5 = "   Solana            " + solanaAPY + "                 "  +solanaStakedStr +  " ₳\n\n"
+    tweet9 = "   Tezos              " + tezosAPY + "                 "  +tezosStakedStr +  " ₳\n\n"
+    tweet9_5 = "   Zcash              " + zcashAPY + "                 "  +zcashStakedStr +  " ₳\n\n"
 
     tweet10 = "Tokens staked out of the circulating supply: \n" + totalTokensStakedFormatted + " ₳ / " + totalCircTokensFormatted + " ₳"
     tweet11 = "\n\nTotal Staked Percentage: " + stakedPercentageStr + "%\n"+ "$AMP #flexa #amp"
@@ -379,11 +376,10 @@ async def main():
 
     time.sleep(6)
 
-    timeCurr = datetime.now()
-    timeCurr = timeCurr.strftime("%H:%M:%S")
 
-    print(timeCurr)
-    quit()
+
+
+
 
 
 
@@ -407,8 +403,24 @@ async def main():
         # Date,Time,Spedn,Gemini,Lightning,SpednAPY,GeminiAPY,LightningAPY
     with open("./capacityStats.csv", "a", newline='') as csvfile:
         writer = csv.writer(csvfile)
-        writer.writerow([dateCurr, timeCurr, spednStakedstr,geminiStakedStr,lightningStakedStr,spednAPY,geminiAPY,lightningAPY, ""])
-
+        '''
+        0   Gemini
+        1   Spedn
+        2   Bitcoin
+        3   Bitcoin Cash
+        4   Cardano
+        5   Celo
+        6   Dogecoin
+        7   Ethereum
+        8   Lightning
+        9   Litecoin
+        10  Polygon
+        11  Solana
+        12  Tezos
+        13  Zcash
+        '''
+        # writer.writerow([dateCurr, timeCurr, spednStakedstr,geminiStakedStr,lightningStakedStr,spednAPY,geminiAPY,lightningAPY, ""])
+        writer.writerow([dateCurr, timeCurr,  geminiStakedStr,geminiAPY,""])
     await page.close()
     await browser.close()
 

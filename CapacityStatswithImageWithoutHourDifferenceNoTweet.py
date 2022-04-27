@@ -20,45 +20,70 @@ async def main():
 
 
     
-    # Gemini Pool
-    page = await browser.newPage()
-    await page.goto('https://app.flexa.network/explore/app/gemini')
-    time.sleep(10)
-    element = await page.querySelector(".css-i3vmyo")
-    title = await page.evaluate('(element) => element.textContent', element)
-    geminiStaked = re.search("(?s)(?<=currently ).*?(?= of)", title)
-    geminiStaked = geminiStaked.group(0)
-    # print("Total Staked on Gemini: " + geminiStaked)
-    geminiStakedStr = geminiStaked
-    geminiStaked = geminiStaked.replace(",", "")
-    geminiStaked = float(geminiStaked)
+    # # Gemini Pool
+    # page = await browser.newPage()
+    # await page.goto('https://app.flexa.network/explore/app/gemini')
+    # time.sleep(10)
+    # element = await page.querySelector(".css-i3vmyo")
+    # title = await page.evaluate('(element) => element.textContent', element)
+    # geminiStaked = re.search("(?s)(?<=currently ).*?(?= of)", title)
+    # geminiStaked = geminiStaked.group(0)
+    # # print("Total Staked on Gemini: " + geminiStaked)
+    # geminiStakedStr = geminiStaked
+    # geminiStaked = geminiStaked.replace(",", "")
+    # geminiStaked = float(geminiStaked)
     
-    # # Spedn Pool
+    # # # Spedn Pool
+    # page = await browser.newPage()
+    # await page.goto('https://app.flexa.network/explore/app/spedn')
+    # time.sleep(11)
+    # element = await page.querySelector(".css-i3vmyo")
+    # title = await page.evaluate('(element) => element.textContent', element)
+    # spednStaked = re.search("(?s)(?<=currently ).*?(?= of)", title)
+    # spednStaked = spednStaked.group(0)
+    # spednStakedstr = spednStaked
+    # # print("Total Staked on Spedn: " + spednStaked)
+    # spednStaked = spednStaked.replace(",", "")
+    # spednStaked = float(spednStaked)
+
+
+    # # # Lightning Pool
+    # page = await browser.newPage()
+    # await page.goto('https://app.flexa.network/explore/transformer/lightning')
+    # time.sleep(11)
+    # element = await page.querySelector(".css-i3vmyo")
+    # title = await page.evaluate('(element) => element.textContent', element)
+    # lightningStaked = re.search("(?s)(?<=currently ).*?(?= of)", title)
+    # lightningStaked = lightningStaked.group(0)
+    # lightningStakedStr = lightningStaked
+    # # print("Total Staked on Lightning: " + lightningStaked)
+    # lightningStaked = lightningStaked.replace(",", "")
+    # lightningStaked = float(lightningStaked)
+
+
+    # # Bitcoin Pool
     page = await browser.newPage()
-    await page.goto('https://app.flexa.network/explore/app/spedn')
+    await page.goto('https://app.flexa.network/explore/transformer/bitcoin')
     time.sleep(11)
     element = await page.querySelector(".css-i3vmyo")
     title = await page.evaluate('(element) => element.textContent', element)
-    spednStaked = re.search("(?s)(?<=currently ).*?(?= of)", title)
-    spednStaked = spednStaked.group(0)
-    spednStakedstr = spednStaked
-    # print("Total Staked on Spedn: " + spednStaked)
-    spednStaked = spednStaked.replace(",", "")
-    spednStaked = float(spednStaked)
-
-
-    # # Lightning Pool
-    page = await browser.newPage()
-    await page.goto('https://app.flexa.network/explore/transformer/lightning')
-    time.sleep(11)
-    element = await page.querySelector(".css-i3vmyo")
-    title = await page.evaluate('(element) => element.textContent', element)
-    lightningStaked = re.search("(?s)(?<=currently ).*?(?= of)", title)
-    lightningStaked = lightningStaked.group(0)
-    lightningStakedStr = lightningStaked
+    bitcoinStaked = re.search("(?s)(?<=currently ).*?(?= of)", title)
+    bitcoinStaked = lightningStaked.group(0)
+    bitcoinStakedStr = lightningStaked
     # print("Total Staked on Lightning: " + lightningStaked)
-    lightningStaked = lightningStaked.replace(",", "")
-    lightningStaked = float(lightningStaked)
+    bitcoinStaked = bitcoinStaked.replace(",", "")
+    bitcoinStaked = float(bitcoinStaked)
+
+
+    print(bitcoinStaked,bitcoinStakedStr)
+
+
+
+
+
+    exit
+
+
 
     # APY Percentages
     page = await browser.newPage()

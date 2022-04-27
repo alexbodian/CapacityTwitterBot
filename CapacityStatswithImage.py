@@ -285,7 +285,7 @@ async def main():
     totalTokensStakedFormatted = locale.format_string("%d", totalTokensStaked, grouping=True)
 
 
-    stakedPercentage = (((geminiStaked+spednStaked+lightningStaked)/totalCircTokens)*100)
+    stakedPercentage = (((totalTokensStaked)/totalCircTokens)*100)
     stakedPercentage = round(stakedPercentage,2)
     stakedPercentageStr = str(stakedPercentage)
 

@@ -19,7 +19,7 @@ async def main():
     browser = await launch()
 
     timeCurr = datetime.now()
-    timeCurr = timeCurr.strftime("%H:%M")
+    timeCurr = timeCurr.strftime("%H:%M:%S")
 
     print(timeCurr)
     
@@ -338,18 +338,18 @@ async def main():
     tweet1 = "                              Flexa Capacity Stats\n\n"
     tweet2 =   "    Pool                 APY                Amount of AMP Staked                       \n"
     tweet2_5 = " -----------         ----------          ----------------------------------                 \n"
-    tweet3 = "   Gemini             " + geminiAPY + "                 "  +geminiStakedStr +  " ₳\n\n"
-    tweet3_5 = "   Spedn               " + spednAPY + "                 "  +spednStakedstr +  " ₳\n\n"
+    tweet3 = "   Gemini           " + geminiAPY + "                 "  +geminiStakedStr +  " ₳\n\n"
+    tweet3_5 = "   Spedn             " + spednAPY + "                 "  +spednStakedstr +  " ₳\n\n"
     tweet4 = "   Bitcoin             " + bitcoinAPY + "                 "  +bitcoinStakedStr +  " ₳\n\n"
-    tweet4_5 = "   Bitcoin Cash        " + bitcoincashAPY + "                 "  +bitcoincashStakedStr +  " ₳\n\n"
-    tweet5 = "   Cardano            " + cardanoAPY + "                 "  +cardanoStakedStr +  " ₳\n\n"
+    tweet4_5 = "   Bitcoin Cash      " + bitcoincashAPY + "                 "  +bitcoincashStakedStr +  " ₳\n\n"
+    tweet5 = "   Cardano         " + cardanoAPY + "                 "  +cardanoStakedStr +  " ₳\n\n"
     tweet5_5 = "   Celo                  " + celoAPY + "                 "  +celoStakedStr +  " ₳\n\n"
-    tweet6 = "   Dogecoin           " + dogecoinAPY + "                 "  +dogecoinStakedStr +  " ₳\n\n"
-    tweet6_5 = "   Ethereum           " + ethereumAPY + "                 "  +ethereumStakedStr +  " ₳\n\n"
-    tweet7 = "   Lightning            " + lightningAPY + "                 "  +lightningStakedStr +  " ₳\n\n"
+    tweet6 = "   Dogecoin         " + dogecoinAPY + "                 "  +dogecoinStakedStr +  " ₳\n\n"
+    tweet6_5 = "   Ethereum         " + ethereumAPY + "                 "  +ethereumStakedStr +  " ₳\n\n"
+    tweet7 = "   Lightning           " + lightningAPY + "                 "  +lightningStakedStr +  " ₳\n\n"
     tweet7_5 = "   Litecoin            " + litecoinAPY + "                 "  +litecoinStakedStr +  " ₳\n\n"
-    tweet8 = "   Polygon           " + polygonAPY + "                 "  +polygonStakedStr +  " ₳\n\n"
-    tweet8_5 = "   Solana            " + solanaAPY + "                 "  +solanaStakedStr +  " ₳\n\n"
+    tweet8 = "   Polygon          " + polygonAPY + "                 "  +polygonStakedStr +  " ₳\n\n"
+    tweet8_5 = "   Solana           " + solanaAPY + "                 "  +solanaStakedStr +  " ₳\n\n"
     tweet9 = "   Tezos             " + tezosAPY + "                 "  +tezosStakedStr +  " ₳\n\n"
     tweet9_5 = "   Zcash             " + zcashAPY + "                 "  +zcashStakedStr +  " ₳\n\n"
 
@@ -380,7 +380,7 @@ async def main():
     time.sleep(6)
 
     timeCurr = datetime.now()
-    timeCurr = timeCurr.strftime("%H:%M")
+    timeCurr = timeCurr.strftime("%H:%M:%S")
 
     print(timeCurr)
     quit()

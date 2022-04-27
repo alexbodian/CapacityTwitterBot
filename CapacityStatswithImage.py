@@ -348,7 +348,7 @@ async def main():
     tweet8 = "   Polygon             " + polygonAPY + "                 "  +polygonStakedStr +  " ₳\n\n"
     tweet8_5 = "   Solana             " + solanaAPY + "                 "  +solanaStakedStr +  " ₳\n\n"
     tweet9 = "   Tezos             " + tezosAPY + "                 "  +tezosStakedStr +  " ₳\n\n"
-    tweet9_5 = "   Zcash             " + zcashAPY + "                 "  +zcashStakedS +  " ₳\n\n"
+    tweet9_5 = "   Zcash             " + zcashAPY + "                 "  +zcashStakedStr +  " ₳\n\n"
 
     tweet10 = "Tokens staked out of the circulating supply: \n" + totalTokensStakedFormatted + " ₳ / " + totalCircTokensFormatted + " ₳"
     tweet11 = "\n\nTotal Staked Percentage: " + stakedPercentageStr + "%\n"+ "$AMP #flexa #amp"

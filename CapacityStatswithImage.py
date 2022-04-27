@@ -18,7 +18,10 @@ locale.setlocale(locale.LC_ALL, 'en_US.UTF-8')
 async def main():
     browser = await launch()
 
+    timeCurr = datetime.now()
+    timeCurr = timeCurr.strftime("%H:%M")
 
+    print(timeCurr)
     
     # Gemini Pool
     page = await browser.newPage()
@@ -336,17 +339,17 @@ async def main():
     tweet2 =   "    Pool                 APY                Amount of AMP Staked                       \n"
     tweet2_5 = " -----------         ----------          ----------------------------------                 \n"
     tweet3 = "   Gemini             " + geminiAPY + "                 "  +geminiStakedStr +  " ₳\n\n"
-    tweet3_5 = "   Spedn             " + spednAPY + "                 "  +spednStakedstr +  " ₳\n\n"
+    tweet3_5 = "   Spedn               " + spednAPY + "                 "  +spednStakedstr +  " ₳\n\n"
     tweet4 = "   Bitcoin             " + bitcoinAPY + "                 "  +bitcoinStakedStr +  " ₳\n\n"
-    tweet4_5 = "   Bitcoin Cash             " + bitcoincashAPY + "                 "  +bitcoincashStakedStr +  " ₳\n\n"
-    tweet5 = "   Cardano             " + cardanoAPY + "                 "  +cardanoStakedStr +  " ₳\n\n"
-    tweet5_5 = "   Celo             " + celoAPY + "                 "  +celoStakedStr +  " ₳\n\n"
-    tweet6 = "   Dogecoin             " + dogecoinAPY + "                 "  +dogecoinStakedStr +  " ₳\n\n"
-    tweet6_5 = "   Ethereum             " + ethereumAPY + "                 "  +ethereumStakedStr +  " ₳\n\n"
-    tweet7 = "   Lightning             " + lightningAPY + "                 "  +lightningStakedStr +  " ₳\n\n"
-    tweet7_5 = "   Litecoin             " + litecoinAPY + "                 "  +litecoinStakedStr +  " ₳\n\n"
-    tweet8 = "   Polygon             " + polygonAPY + "                 "  +polygonStakedStr +  " ₳\n\n"
-    tweet8_5 = "   Solana             " + solanaAPY + "                 "  +solanaStakedStr +  " ₳\n\n"
+    tweet4_5 = "   Bitcoin Cash        " + bitcoincashAPY + "                 "  +bitcoincashStakedStr +  " ₳\n\n"
+    tweet5 = "   Cardano            " + cardanoAPY + "                 "  +cardanoStakedStr +  " ₳\n\n"
+    tweet5_5 = "   Celo                  " + celoAPY + "                 "  +celoStakedStr +  " ₳\n\n"
+    tweet6 = "   Dogecoin           " + dogecoinAPY + "                 "  +dogecoinStakedStr +  " ₳\n\n"
+    tweet6_5 = "   Ethereum           " + ethereumAPY + "                 "  +ethereumStakedStr +  " ₳\n\n"
+    tweet7 = "   Lightning            " + lightningAPY + "                 "  +lightningStakedStr +  " ₳\n\n"
+    tweet7_5 = "   Litecoin            " + litecoinAPY + "                 "  +litecoinStakedStr +  " ₳\n\n"
+    tweet8 = "   Polygon           " + polygonAPY + "                 "  +polygonStakedStr +  " ₳\n\n"
+    tweet8_5 = "   Solana            " + solanaAPY + "                 "  +solanaStakedStr +  " ₳\n\n"
     tweet9 = "   Tezos             " + tezosAPY + "                 "  +tezosStakedStr +  " ₳\n\n"
     tweet9_5 = "   Zcash             " + zcashAPY + "                 "  +zcashStakedStr +  " ₳\n\n"
 
@@ -361,7 +364,7 @@ async def main():
     # https://python.plainenglish.io/generating-text-on-image-with-python-eefe4430fe77
     # https://pillow.readthedocs.io/en/stable/reference/ImageDraw.html
     width = 512
-    height = 305
+    height = 846
     img = Image.new('RGB', (width, height), color='black')
     fnt = ImageFont.truetype("NotoSans-Regular.ttf", 20)
     imgDraw = ImageDraw.Draw(img)
@@ -376,7 +379,10 @@ async def main():
 
     time.sleep(6)
 
+    timeCurr = datetime.now()
+    timeCurr = timeCurr.strftime("%H:%M")
 
+    print(timeCurr)
     quit()
 
 

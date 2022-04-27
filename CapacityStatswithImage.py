@@ -340,7 +340,7 @@ async def main():
     tweet4 = "   Bitcoin             " + bitcoinAPY + "                 "  +bitcoinStakedStr +  " ₳\n\n"
     tweet4_5 = "   Bitcoin Cash     " + bitcoincashAPY + "                 "  +bitcoincashStakedStr +  " ₳\n\n"
     tweet5 = "   Cardano          " + cardanoAPY + "                 "  +cardanoStakedStr +  " ₳\n\n"
-    tweet5_5 = "   Celo                   " + celoAPY + "                    "  +celoStakedStr +  " ₳\n\n"
+    tweet5_5 = "   Celo                   " + celoAPY + "                  "  +celoStakedStr +  " ₳\n\n"
     tweet6 = "   Dogecoin          " + dogecoinAPY + "                 "  +dogecoinStakedStr +  " ₳\n\n"
     tweet6_5 = "   Ethereum          " + ethereumAPY + "                 "  +ethereumStakedStr +  " ₳\n\n"
     tweet7 = "   Lightning            " + lightningAPY + "                 "  +lightningStakedStr +  " ₳\n\n"
@@ -354,7 +354,8 @@ async def main():
     tweet11 = "\n\nTotal Staked Percentage: " + stakedPercentageStr + "%\n"+ "$AMP #flexa #amp"
 
     tweet = (tweet1 + tweet2 + tweet2_5 + tweet3 + tweet3_5 + tweet4 + tweet4_5 + tweet5 + tweet5_5 + tweet6 +tweet6_5+tweet7+tweet7_5+tweet8+tweet8_5+tweet9+tweet9_5)
-    tweetText = (tweet10 + tweet12 + tweet11)
+    tweetText = (tweet10 + tweet12 + tweet11) # with difference
+    tweetText = (tweet10 + tweet11) # without difference
 
     
 
@@ -368,16 +369,14 @@ async def main():
 
     imgDraw.text((10, 10), tweet,font=fnt, fill=(255, 255, 255))
 
-    currentTime = time.time()
-    currentTime = int(currentTime)
-    currentTime = str(currentTime)
-
+    # currentTime = time.time()
+    # currentTime = int(currentTime)
+    # currentTime = str(currentTime)
+    now = datetime.now() # current date and time
+    currentTime = now.strftime("%m%d%Y_%H%M")
     img.save('./image/{}.png'.format(currentTime))
 
     time.sleep(6)
-
-
-
 
 
 
@@ -420,7 +419,23 @@ async def main():
         13  Zcash
         '''
         # writer.writerow([dateCurr, timeCurr, spednStakedstr,geminiStakedStr,lightningStakedStr,spednAPY,geminiAPY,lightningAPY, ""])
-        writer.writerow([dateCurr, timeCurr,  geminiStakedStr,geminiAPY,""])
+        writer.writerow([
+        dateCurr, timeCurr,  
+        geminiStakedStr,geminiAPY,
+        spednStakedstr,spednAPY,
+        bitcoinStakedStr,bitcoinAPY,
+        bitcoincashStakedStr,bitcoincashAPY,
+        cardanoStakedStr,cardanoAPY,
+        celoStakedStr,celoAPY,
+        dogecoinStakedStr,dogecoinAPY,
+        ethereumStakedStr,ethereumAPY,
+        lightningStakedStr,lightningAPY,
+        litecoinStakedStr, litecoinAPY,
+        polygonStakedStr,polygonAPY,
+        solanaStakedStr,solanaAPY,
+        tezosStakedStr,tezosAPY,
+        zcashStakedStr,zcashStakedStr
+        ])
     await page.close()
     await browser.close()
 

@@ -242,7 +242,7 @@ async def main():
     dogecoinAPY = await page.evaluate('(element) => element.textContent', element[6])
     ethereumAPY = await page.evaluate('(element) => element.textContent', element[7])
     lightningAPY = await page.evaluate('(element) => element.textContent', element[8])
-    litcoinAPY = await page.evaluate('(element) => element.textContent', element[9])
+    litecoinAPY = await page.evaluate('(element) => element.textContent', element[9])
     polygonAPY = await page.evaluate('(element) => element.textContent', element[10])
     solanaAPY = await page.evaluate('(element) => element.textContent', element[11])
     tezosAPY = await page.evaluate('(element) => element.textContent', element[12])

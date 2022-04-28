@@ -434,7 +434,7 @@ async def main():
         polygonStakedStr,polygonAPY,
         solanaStakedStr,solanaAPY,
         tezosStakedStr,tezosAPY,
-        zcashStakedStr,zcashStakedStr
+        zcashStakedStr,zcashAPY
         ])
     await page.close()
     await browser.close()

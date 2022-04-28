@@ -164,14 +164,19 @@ async def main():
                    )
     df.reset_index(drop=True, inplace=True) # remove row numbers
     df_styled = df.style.set_properties(**{'background-color': 'black',
-                           'color': 'white'})
+                           'color': 'white',
+                           'border':"1px solid white"})
 
     df_styled = df_styled.set_table_styles([
         {
            'selector': 'th',
            'props': [
                ('background-color', 'black'),
-               ('color', 'grey')]
+               ('color', 'grey'),
+               ("border", "1px solid white")
+               
+               
+               ]
        }])
     dfi.export(df_styled, './image/{}.png'.format(currentTime))
 

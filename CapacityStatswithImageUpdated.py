@@ -179,7 +179,7 @@ async def main():
     df = pd.DataFrame(
                     {'Pool': poolList,
                    'APY':apyList,
-                   'Amount of AMP Staked': stakedStrList
+                   '     Amount of AMP Staked': stakedStrList
 
                    }
                    

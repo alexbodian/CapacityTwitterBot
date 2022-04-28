@@ -4,6 +4,8 @@ import re
 import time
 import locale
 import asyncio
+import pandas as pd
+import dataframe_image as dfi
 import csv
 from datetime import date
 from datetime import datetime
@@ -21,6 +23,23 @@ async def main():
     stakedList = []
     stakedStrList = []
     apyList = []
+
+    poolList = [
+    'Gemini',
+    'Spedn',
+    'Bitcoin',
+    'Bitcoin Cash',
+    'Cardano',
+    'Celo',
+    'Dogecoin',
+    'Ethereum',
+    'Lightning',
+    'Litecoin',
+    'Polygon',
+    'Solana',
+    'Tezos',
+    'Zcash'
+    ]
 
     urlList = [
     'app/gemini',
@@ -155,6 +174,18 @@ async def main():
     12  Tezos
     13  Zcash
     '''
+
+
+    df = pd.DataFrame(
+                    {'Pool': poolList,
+                   'APY':apyList,
+                   'Amount of AMP Staked': stakedStrList
+
+                   }
+                   
+                   )
+ 
+    dfi.export(df, 'dataframe.png')
     
     # tweet1 = "                              Flexa Capacity Stats\n\n"
     # tweet2 =   "    Pool                 APY                Amount of AMP Staked                       \n"

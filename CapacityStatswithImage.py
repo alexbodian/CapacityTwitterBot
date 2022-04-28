@@ -136,11 +136,11 @@ async def main():
         tweet12 = "\nChange in amount staked in the past hour: \nIncreased by " + stakedChangeStr + " ₳\n"
 
 
-    # tweet10 = "Tokens staked out of the circulating supply: \n" + totalTokensStakedFormatted + " ₳ / " + totalCircTokensFormatted + " ₳"
-    # tweet11 = "\n\nTotal Staked Percentage: " + stakedPercentageStr + "%\n"+ "$AMP #flexa #amp"
+    tweet10 = "Tokens staked out of the circulating supply: \n" + totalTokensStakedFormatted + " ₳ / " + totalCircTokensFormatted + " ₳"
+    tweet11 = "\n\nTotal Staked Percentage: " + stakedPercentageStr + "%\n"+ "$AMP #flexa #amp"
 
     
-    # tweetText = (tweet10 + tweet12 + tweet11) # with difference
+    tweetText = (tweet10 + tweet12 + tweet11) # with difference
     # tweetText = (tweet10 + tweet11) # without difference
 
     

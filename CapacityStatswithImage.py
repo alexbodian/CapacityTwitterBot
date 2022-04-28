@@ -156,14 +156,24 @@ async def main():
     
     df = pd.DataFrame(
                     {'Pool': poolList,
-                   'APY':apyList,
-                   '     Amount of AMP Staked': stakedStrList
+                   ' APY':apyList,
+                   'Amount of AMP Staked': stakedStrList
 
                    }
                    
                    )
- 
-    dfi.export(df, './image/{}.png'.format(currentTime))
+    df.reset_index(drop=True, inplace=True) # remove row numbers
+    df_styled = df.style.set_properties(**{'background-color': 'black',
+                           'color': 'white'})
+
+    df_styled = df_styled.set_table_styles([
+        {
+           'selector': 'th',
+           'props': [
+               ('background-color', 'black'),
+               ('color', 'grey')]
+       }])
+    dfi.export(df_styled, './image/{}.png'.format(currentTime))
 
     time.sleep(6)
 

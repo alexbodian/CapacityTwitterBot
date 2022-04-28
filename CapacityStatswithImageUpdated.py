@@ -79,9 +79,9 @@ async def main():
     '''
 
 
+    time.sleep(17)
     page = await browser.newPage()
     await page.goto('https://app.flexa.network/account/supply')
-    time.sleep(17)
     element = await page.querySelectorAll(".css-1bvmc47")
 
     for x in range(14):
@@ -255,7 +255,8 @@ async def main():
         stakedStrList[7],apyList[7],
         stakedStrList[8],apyList[8],
         stakedStrList[9],apyList[9],
-        stakedStrList[10],apyList[11],
+        stakedStrList[10],apyList[10],
+        stakedStrList[11],apyList[11],
         stakedStrList[12],apyList[12],
         stakedStrList[13],apyList[13]
         ])

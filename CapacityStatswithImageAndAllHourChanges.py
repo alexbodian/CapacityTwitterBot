@@ -110,13 +110,21 @@ async def main():
         
         Staked = int(Staked)
         
+        
+
         Delta = Staked - LastHourStakedAmountList[count]
+        notNegative = Delta > 0
         Delta = locale.format_string("%d", Delta, grouping=True)
+        if notNegative:
+            Delta = "+" + str(Delta)
         Delta = str(Delta)        
         HourlyChangeInPoolsList.append(Delta)
 
         stakedStrList.append(StakedStr)
         count+=1
+
+
+    print(HourlyChangeInPoolsList)
 
     # APY Percentages
     time.sleep(17)

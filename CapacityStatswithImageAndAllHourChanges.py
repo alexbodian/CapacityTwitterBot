@@ -132,7 +132,8 @@ async def main():
     await page.goto('https://app.flexa.network/account/supply')
     element = await page.querySelectorAll(".css-1bvmc47")
 
-    for x in range(14):
+    apyList.append("0%")
+    for x in range(13):
         tempAPY = await page.evaluate('(element) => element.textContent', element[x])
         tempAPY = tempAPY.replace("APY", "")
 

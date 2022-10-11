@@ -1,0 +1,148 @@
+{
+    "success": true,
+    "total": 22002101144,
+    "price": 0.00476,
+    "pools": [
+        {
+            "id": "lightning",
+            "name": "Lightning",
+            "shorthand": "LN",
+            "balance": 5732153480,
+            "abbreviatedBalance": "5.73b",
+            "capacity": 27285051,
+            "abbreviatedCapacity": "$27.29m",
+            "yield": 0.1052
+        },
+        {
+            "id": "SPEDN",
+            "name": "SPEDN",
+            "shorthand": "SPDN",
+            "balance": 4651854314,
+            "abbreviatedBalance": "4.65b",
+            "capacity": 22142827,
+            "abbreviatedCapacity": "$22.14m",
+            "yield": 0.0606
+        },
+        {
+            "id": "Gemini",
+            "name": "Gemini",
+            "shorthand": "GEM",
+            "balance": 3551277114,
+            "abbreviatedBalance": "3.55b",
+            "capacity": 16904079,
+            "abbreviatedCapacity": "$16.90m",
+            "yield": 0
+        },
+        {
+            "id": "ethereum",
+            "name": "Ethereum",
+            "shorthand": "ETH",
+            "balance": 1671492328,
+            "abbreviatedBalance": "1.67b",
+            "capacity": 7956303,
+            "abbreviatedCapacity": "$7.96m",
+            "yield": 0.0606
+        },
+        {
+            "id": "bitcoin",
+            "name": "Bitcoin",
+            "shorthand": "BTC",
+            "balance": 1665578339,
+            "abbreviatedBalance": "1.67b",
+            "capacity": 7928153,
+            "abbreviatedCapacity": "$7.93m",
+            "yield": 0.0609
+        },
+        {
+            "id": "polygon",
+            "name": "Polygon",
+            "shorthand": "POLY",
+            "balance": 1322561039,
+            "abbreviatedBalance": "1.32b",
+            "capacity": 6295391,
+            "abbreviatedCapacity": "$6.30m",
+            "yield": 0.0633
+        },
+        {
+            "id": "solana",
+            "name": "Solana",
+            "shorthand": "SOL",
+            "balance": 806770306,
+            "abbreviatedBalance": "806.77m",
+            "capacity": 3840227,
+            "abbreviatedCapacity": "$3.84m",
+            "yield": 0.1051
+        },
+        {
+            "id": "bitcoin-cash",
+            "name": "Bitcoin Cash",
+            "shorthand": "BCH",
+            "balance": 435145747,
+            "abbreviatedBalance": "435.15m",
+            "capacity": 2071294,
+            "abbreviatedCapacity": "$2.07m",
+            "yield": 0.08
+        },
+        {
+            "id": "cardano",
+            "name": "Cardano",
+            "shorthand": "ADA",
+            "balance": 383223692,
+            "abbreviatedBalance": "383.22m",
+            "capacity": 1824145,
+            "abbreviatedCapacity": "$1.82m",
+            "yield": 0.0911
+        },
+        {
+            "id": "dogecoin",
+            "name": "Dogecoin",
+            "shorthand": "DOGE",
+            "balance": 367279204,
+            "abbreviatedBalance": "367.28m",
+            "capacity": 1748249,
+            "abbreviatedCapacity": "$1.75m",
+            "yield": 0.0951
+        },
+        {
+            "id": "celo",
+            "name": "Celo",
+            "shorthand": "CELO",
+            "balance": 365460434,
+            "abbreviatedBalance": "365.46m",
+            "capacity": 1739592,
+            "abbreviatedCapacity": "$1.74m",
+            "yield": 0.0956
+        },
+        {
+            "id": "zcash",
+            "name": "Zcash",
+            "shorthand": "ZEC",
+            "balance": 363945544,
+            "abbreviatedBalance": "363.95m",
+            "capacity": 1732381,
+            "abbreviatedCapacity": "$1.73m",
+            "yield": 0.096
+        },
+        {
+            "id": "litecoin",
+            "name": "Litecoin",
+            "shorthand": "LTC",
+            "balance": 348607319,
+            "abbreviatedBalance": "348.61m",
+            "capacity": 1659371,
+            "abbreviatedCapacity": "$1.66m",
+            "yield": 0.1003
+        },
+        {
+            "id": "tezos",
+            "name": "Tezos",
+            "shorthand": "XTZ",
+            "balance": 336752284,
+            "abbreviatedBalance": "336.75m",
+            "capacity": 1602941,
+            "abbreviatedCapacity": "$1.60m",
+            "yield": 0.1039
+        }
+    ],
+    "responseTimeInSeconds": 27.61
+}

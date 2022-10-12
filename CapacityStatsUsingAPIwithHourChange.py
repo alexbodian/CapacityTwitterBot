@@ -105,7 +105,7 @@ def main():
 
 
     # CSV Stuff
-    pprint(pools)
+    
     dateCurr=date.today()
     dateCurr=dateCurr.strftime("%m/%d/%y")
 
@@ -115,8 +115,22 @@ def main():
     with open("./capacityStatsAPI.csv", "a", newline='') as csvfile:
         writer=csv.writer(csvfile)
 
-        write.writerow([
-
+        writer.writerow([
+            dateCurr, timeCurr,
+            poolsWithStrings[1][0],poolsWithStrings[2][0],
+            poolsWithStrings[1][1],poolsWithStrings[2][1],
+            poolsWithStrings[1][2],poolsWithStrings[2][2],
+            poolsWithStrings[1][3],poolsWithStrings[2][3],
+            poolsWithStrings[1][4],poolsWithStrings[2][4],
+            poolsWithStrings[1][5],poolsWithStrings[2][5],
+            poolsWithStrings[1][6],poolsWithStrings[2][6],
+            poolsWithStrings[1][7],poolsWithStrings[2][7],
+            poolsWithStrings[1][8],poolsWithStrings[2][8],
+            poolsWithStrings[1][9],poolsWithStrings[2][9],
+            poolsWithStrings[1][10],poolsWithStrings[2][10],
+            poolsWithStrings[1][11],poolsWithStrings[2][11],
+            poolsWithStrings[1][12],poolsWithStrings[2][12],
+            poolsWithStrings[1][13],poolsWithStrings[2][13]
 
 
         ])

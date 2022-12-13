@@ -61,7 +61,7 @@ async def main():
     ]
 
     # Grab last recorded info for each pool from csv
-    file = open("capacityStats.csv")
+    file = open("capacityStatsScrape.csv")
     csvreader = csv.reader(file)
     header = next(csvreader)
     rows = []
@@ -248,7 +248,7 @@ async def main():
     timeCurr=timeCurr.strftime("%H:%M")
 
         # Date,Time,Spedn,Gemini,Lightning,SpednAPY,GeminiAPY,LightningAPY
-    with open("./capacityStats.csv", "a", newline='') as csvfile:
+    with open("./capacityStatsScrape.csv", "a", newline='') as csvfile:
         writer=csv.writer(csvfile)
 
         writer.writerow([

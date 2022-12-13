@@ -206,7 +206,7 @@ async def main():
     timeCurr = timeCurr.strftime("%H:%M")
     
         # Date,Time,Spedn,Gemini,Lightning,SpednAPY,GeminiAPY,LightningAPY
-    with open("./capacityStats.csv", "a", newline='') as csvfile:
+    with open("./capacityStatsScrape.csv", "a", newline='') as csvfile:
         writer = csv.writer(csvfile)
 
         writer.writerow([

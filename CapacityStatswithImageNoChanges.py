@@ -87,7 +87,7 @@ async def main():
     
     apyList.append("0%")
 
-    for x in range(13):
+    for x in range(12):
         tempAPY = await page.evaluate('(element) => element.textContent', element[x])
         tempAPY = tempAPY.replace("APY", "")
 

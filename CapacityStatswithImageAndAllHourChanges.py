@@ -128,13 +128,13 @@ async def main():
     print(HourlyChangeInPoolsList)
 
     # APY Percentages
-    time.sleep(17)
     page = await browser.newPage()
     await page.goto('https://app.flexa.network/account/supply')
+    time.sleep(17)
     element = await page.querySelectorAll(".css-1bvmc47")
 
     apyList.append("0%")
-    for x in range(12):
+    for x in range(13):
         tempAPY = await page.evaluate('(element) => element.textContent', element[x])
         tempAPY = tempAPY.replace("APY", "")
 

@@ -4,6 +4,7 @@ import re
 import time
 import locale
 import asyncio
+import config
 import pandas as pd
 import dataframe_image as dfi
 import csv
@@ -201,7 +202,7 @@ async def main():
 
     df = pd.DataFrame(
                     {'Pool': poolList,
-                   'APY': apyList,
+                   'Yield': apyList,
                    'Amount of AMP Staked': stakedStrList,
                    'Hourly Change': HourlyChangeInPoolsList
 
@@ -230,8 +231,8 @@ async def main():
 
 
 
-    authenticator=tweepy.OAuthHandler(api_key, api_key_secret)
-    authenticator.set_access_token(access_token, access_token_secret)
+    authenticator = tweepy.OAuthHandler(config.api_key, config.api_key_secret)
+    authenticator.set_access_token(config.access_token, config.access_token_secret)
 
     api=tweepy.API(authenticator, wait_on_rate_limit=True)
 

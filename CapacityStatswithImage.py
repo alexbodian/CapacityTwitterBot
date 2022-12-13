@@ -3,6 +3,7 @@ import tweepy
 import re
 import time
 import locale
+import config
 import asyncio
 import pandas as pd
 import dataframe_image as dfi
@@ -158,7 +159,7 @@ async def main():
     
     df = pd.DataFrame(
                     {'Pool': poolList,
-                   ' APY':apyList,
+                   ' Yield':apyList,
                    'Amount of AMP Staked': stakedStrList
 
                    }
@@ -188,16 +189,16 @@ async def main():
 
 
 
-    # authenticator = tweepy.OAuthHandler(api_key, api_key_secret)
-    # authenticator.set_access_token(access_token, access_token_secret)
+    authenticator = tweepy.OAuthHandler(config.api_key, config.api_key_secret)
+    authenticator.set_access_token(config.access_token, config.access_token_secret)
 
-    # api = tweepy.API(authenticator, wait_on_rate_limit=True)
+    api = tweepy.API(authenticator, wait_on_rate_limit=True)
 
-    # # upload image
-    # media = api.media_upload('./image/{}.png'.format(currentTime))
+    # upload image
+    media = api.media_upload('./image/{}.png'.format(currentTime))
 
-    # # post tweet with image
-    # api.update_status(status=tweetText,media_ids=[media.media_id])
+    # post tweet with image
+    api.update_status(status=tweetText,media_ids=[media.media_id])
 
     dateCurr = date.today()
     dateCurr = dateCurr.strftime("%m/%d/%y")

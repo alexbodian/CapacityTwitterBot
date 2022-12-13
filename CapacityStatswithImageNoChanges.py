@@ -138,13 +138,17 @@ async def main():
         stakedChangeStr = locale.format_string("%d", difference, grouping=True)
         tweet12 = "\nChange in amount staked in the past hour: \nIncreased by " + stakedChangeStr + " ₳\n"
 
-
-    tweet10 = "Tokens staked out of the circulating supply: \n" + totalTokensStakedFormatted + " ₳ / " + totalCircTokensFormatted + " ₳"
-    tweet11 = "\n\nTotal Staked Percentage: " + stakedPercentageStr + "%\n"+ "$AMP #flexa #amp"
+    
+    # tweet10 = "Tokens staked out of the circulating supply: \n" + totalTokensStakedFormatted + " ₳ / " + totalCircTokensFormatted + " ₳"
+    # tweet11 = "\n\nTotal Staked Percentage: " + stakedPercentageStr + "%\n"+ "$AMP #flexa #amp"
+    tweet105 = "Total tokens staked: " + totalTokensStakedFormatted + " ₳"
+    tweet13 = "$AMP #flexa #amp"
+    tweet10 = "Total tokens staked: \n" + totalTokensStakedFormatted + " ₳"
+    tweet11 = "\n\n"+ "$AMP #flexa #amp"
 
     
-    tweetText = (tweet10 + tweet12 + tweet11) # with difference
-    # tweetText = (tweet10 + tweet11) # without difference
+    # tweetText = (tweet105 + tweet12  + tweet13)  # with difference
+    tweetText = (tweet10 + tweet11) # without difference
 
     
 

@@ -1,2 +1,2 @@
 #!/bin/sh
-python3 CapacityStatsUsingAPIwithoutHourChange.py
+python3 CapacityStatswithImageAndAllHourChanges.py
